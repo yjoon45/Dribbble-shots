@@ -21,7 +21,18 @@ module.exports = env => {
         }
       ]
     },
-    plugins: env === 'development' ? [] : [
+    plugins: env === 'development' ? [
+      new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery",
+           Tether: 'tether'
+       })
+    ] : [
+      new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery",
+           Tether: 'tether'
+       }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),

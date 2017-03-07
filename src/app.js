@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
+import './vendor-plugin';
 
-function App (props) {
-  return props.children;
-}
+import AppContainer from './containers/AppContainer';
+import Header from './components/Header';
+import ShotsGroup from './components/ShotsGroup';
 
-render(<App>Hello world</App>, document.getElementById('container'));
+render((
+  <AppContainer>
+    <Header />
+    <ShotsGroup />
+  </AppContainer>
+), document.getElementById('container'));

@@ -1,0 +1,14 @@
+body {
+  padding-top: 72px;
+}
+
+.shot {
+  border: 1px solid #777;
+  padding: 8px;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.shot-title {
+  color: #444;
+}
