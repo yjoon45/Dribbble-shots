@@ -15,13 +15,16 @@ class ShotsStore extends ReduceStore {
   reduce (state, action) {
     switch (action.type) {
       case 'FETCH_SHOTS':
-        return state.set('data', state.get('data').concat(action.payload)).set('done', true);
+        return state
+          .set('data', state.get('data').concat(action.payload))
+          .set('done', true)
+          .set('isFetching', false);
       break;
       case 'FETCH_SHOTS_FETCHING':
-        return state.set('isFetching', true);
+        return state.set('isFetching', true).set('done', false).set('isError', false);
       break;
       case 'FETCH_SHOTS_ERROR':
-        return state.set('isError', true);
+        return state.set('isError', true).set('isFetching', false).set('done', false);
       break;
       default:
         return state;

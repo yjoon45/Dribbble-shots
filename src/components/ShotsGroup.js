@@ -17,8 +17,8 @@ export default class ShotsGroup extends Component {
         <ShotsSort {...this.props} />
         <div className="row">
           {shotsMarkup}
-          {shots.isFetching && loading}
         </div>
+        {shots.isFetching && loading}
       </div>
     )
   }
