@@ -1,14 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './vendor-plugin';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import AppContainer from './containers/AppContainer';
-import Header from './components/Header';
 import ShotsGroup from './components/ShotsGroup';
+import './vendor-plugin';
 
 render((
-  <AppContainer>
-    <Header />
-    <ShotsGroup />
-  </AppContainer>
+  <Router history={browserHistory}>
+    <Route path="/" component={AppContainer}>
+      <IndexRoute component={ShotsGroup} />
+    </Route>
+  </Router>
 ), document.getElementById('container'));

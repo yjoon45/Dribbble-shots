@@ -9,22 +9,19 @@ class ShotsStore extends ReduceStore {
   }
 
   getInitialState () {
-    return Immutable.OrderedMap({'shots': Shots()});
+    return Immutable.OrderedMap(Shots());
   }
 
   reduce (state, action) {
     switch (action.type) {
       case 'FETCH_SHOTS':
-        return state.set('shots', Shots({
-          data: action.payload,
-          done: true,
-        }));
+        return state.set('data', state.get('data').concat(action.payload)).set('done', true);
       break;
       case 'FETCH_SHOTS_FETCHING':
-        return state.set('shots', Shots({isFetching: true}));
+        return state.set('isFetching', true);
       break;
       case 'FETCH_SHOTS_ERROR':
-        return state.set('shots', Shots({isError: true}));
+        return state.set('isError', true);
       break;
       default:
         return state;
