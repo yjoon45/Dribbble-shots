@@ -24,7 +24,7 @@ class ShotsStore extends ReduceStore {
         return state.set('isFetching', true).set('isError', false);
       break;
       case 'FETCH_SHOTS_ERROR':
-        return state.set('isError', true).set('isFetching', false).set('done', false);
+        return state.set('isError', true).set('isFetching', false);
       break;
       default:
         return state;
